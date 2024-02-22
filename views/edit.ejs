@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Penambahan ini untuk memperhitungkan border dan padding */
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Edit Data</h1>
+    <form action="/edit/<%= data.id %>" method="post">
+        <label for="nama">Nama:</label><br>
+        <input type="text" id="nama" name="nama" value="<%= data.nama %>"><br>
+        <label for="umur">Umur:</label><br>
+        <input type="text" id="umur" name="umur" value="<%= data.umur %>"><br>
+        <label for="alamat">Alamat:</label><br>
+        <input type="text" id="alamat" name="alamat" value="<%= data.alamat %>"><br>
+        <label for="pekerjaan">Pekerjaan:</label><br>
+        <input type="text" id="pekerjaan" name="pekerjaan" value="<%= data.pekerjaan %>"><br>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email" value="<%= data.email %>"><br>
+        <label for="no_hp">No. HP:</label><br>
+        <input type="text" id="no_hp" name="no_hp" value="<%= data.no_hp %>"><br>
+        <label for="tanggal_lahir">Tanggal Lahir:</label><br>
+        <input type="date" id="tanggal_lahir" name="tanggal_lahir" value="<%= data.tanggal_lahir %>"><br>
+        <label for="jenis_kelamin">Jenis Kelamin:</label><br>
+        <select id="jenis_kelamin" name="jenis_kelamin">
+            <option value="Laki-laki" <%= data.jenis_kelamin === 'Laki-laki' ? 'selected' : '' %>>Laki-laki</option>
+            <option value="Perempuan" <%= data.jenis_kelamin === 'Perempuan' ? 'selected' : '' %>>Perempuan</option>
+        </select><br><br>
+        <input type="submit" value="Simpan">
+    </form>
+</body>
+</html>

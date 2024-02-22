@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Node.js</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+  
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+        
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        a:hover {
+            background-color: #0056b3;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: rgb(139, 44, 44);
+            margin-top: 20px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #848efc;
+        }
+        
+        tr:nth-child(odd) {
+            background-color: #bfc3f8;
+        }
+
+        td a {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 0 5px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+        
+        td a:hover {
+            background-color: #0056b3;
+        }
+  
+    </style>
+</head>
+<body>
+    <h1>CRUD Node.js</h1>
+    <a href="/add">Tambah Data</a>
+    <table border="1">
+        <tr>
+            <th>Nama</th>
+            <th>Umur</th>
+            <th>Alamat</th>
+            <th>Pekerjaan</th>
+            <th>Email</th>
+            <th>No. HP</th>
+            <th>Tanggal Lahir</th>
+            <th>Jenis Kelamin</th>
+            <th>Action</th>
+        </tr>
+        <% results.forEach((data) => { %>
+        <tr>
+            <td><%= data.nama %></td>
+            <td><%= data.umur %></td>
+            <td><%= data.alamat %></td>
+            <td><%= data.pekerjaan %></td>
+            <td><%= data.email %></td>
+            <td><%= data.no_hp %></td>
+            <td><%= data.tanggal_lahir %></td>
+            <td><%= data.jenis_kelamin %></td>
+            <td>
+                <a href="/edit/<%= data.id %>">Edit</a>
+                <a href="/delete/<%= data.id %>" onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
+        <% }); %>
+    </table>
+</body>
+</html>
